@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Sri Farms — Rooted in Tradition, Grown with Care</title>
+<link rel="canonical" href="https://www.harisrifarms.com/">
+<meta property="og:title" content="Hari Sri Farms — Rooted in Tradition, Grown with Care">
+<meta property="og:description" content="Organic bananas, coconut and seasonal marigold, family-farmed in Mothepalayam, Tamil Nadu.">
+<meta property="og:url" content="https://www.harisrifarms.com/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#153420;
+    --forest-deep:#0c2116;
+    --coconut:#5c7f4a;
+    --coconut-light:#87a870;
+    --marigold:#f2a93c;
+    --marigold-deep:#d98a1f;
+    --cream:#faf4e6;
+    --cream-dim:#efe4c9;
+    --earth:#8a5a34;
+    --ink:#182018;
+    --line: rgba(250,244,230,0.18);
+    --line-dark: rgba(21,52,32,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:currentColor; display:inline-block;}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal-stagger > *{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal-stagger.in > *{opacity:1; transform:translateY(0);}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.15s;}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.25s;}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.35s;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:absolute; top:0; left:0; right:0; z-index:30;
+    padding:24px 0;
+  }
+  header.site.solid{
+    position:fixed; background:var(--forest-deep);
+    box-shadow:0 6px 24px rgba(0,0,0,0.18);
+    padding:14px 0;
+    transition:background .3s ease, padding .3s ease;
+  }
+  header.site .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{width:44px; height:44px; border-radius:50%; object-fit:cover; border:1px solid rgba(250,244,230,0.25);}
+  .brand-text{display:flex; flex-direction:column; gap:2px;}
+  .brand-text .name{font-family:'Fraunces', serif; color:var(--cream); font-size:18px; font-weight:600; letter-spacing:0.01em; line-height:1;}
+  .brand-text .tag{font-family:'Space Mono',monospace; color:var(--marigold); font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;}
+  nav.links{display:flex; gap:32px; align-items:center;}
+  nav.links a{
+    color:var(--cream); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
+    opacity:0.85; position:relative; padding-bottom:4px;
+  }
+  nav.links a:hover{opacity:1;}
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--marigold);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase;
+    background:var(--marigold); color:var(--forest-deep); padding:9px 16px; border-radius:2px; font-weight:700;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:#0c2116 url('banana-canopy-light.jpg') center 40%/cover no-repeat;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(12,33,22,0.35) 0%, rgba(12,33,22,0.1) 32%, rgba(12,33,22,0.5) 68%, rgba(12,33,22,0.94) 100%);
+  }
+  .hero .wrap{position:relative; z-index:2; padding:170px 32px 90px;}
+  .hero .eyebrow{color:var(--marigold);}
+  .hero h1{
+    color:var(--cream);
+    font-size:clamp(38px, 6.2vw, 76px);
+    line-height:1.06;
+    max-width:16ch;
+    margin:22px 0 20px;
+  }
+  .hero h1 em{color:var(--marigold); font-style:italic; font-weight:500;}
+  .hero .crop-line{
+    font-family:'Space Mono',monospace; color:var(--cream-dim); font-size:14px; letter-spacing:0.06em;
+    text-transform:uppercase; margin-bottom:34px;
+  }
+  .hero .crop-line span{color:var(--marigold); margin:0 10px;}
+  .hero .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:14px 26px;
+    border-radius:2px;
+    display:inline-block;
+    border:1px solid transparent;
+    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    cursor:pointer;
+  }
+  .btn-solid{background:var(--marigold); color:var(--forest-deep); font-weight:700;}
+  .btn-solid:hover{background:var(--cream); transform:translateY(-2px);}
+  .btn-outline{border-color:rgba(250,244,230,0.5); color:var(--cream);}
+  .btn-outline:hover{border-color:var(--cream); transform:translateY(-2px);}
+
+  .scroll-cue{
+    position:absolute; right:32px; bottom:32px; z-index:2;
+    writing-mode:vertical-rl; color:var(--cream-dim); font-family:'Space Mono',monospace;
+    font-size:11px; letter-spacing:0.18em; display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue::after{content:""; width:1px; height:46px; background:var(--cream-dim); opacity:0.5;}
+
+  /* ---------- ABOUT ---------- */
+  .about{padding:120px 0; background:var(--cream); overflow:hidden;}
+  .about .grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:center;}
+  .about .eyebrow{color:var(--earth);}
+  .about h2{font-size:clamp(28px,3.2vw,40px); margin-top:16px; color:var(--forest);}
+  .about .body p{font-size:16.5px; color:#2c3a2f; max-width:56ch;}
+  .about .body p + p{margin-top:16px;}
+  .about .signature-line{
+    margin-top:30px; padding:20px 0 6px; border-top:1px solid var(--line-dark);
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .about .signature-line span{font-size:15px; color:var(--earth); font-style:italic;}
+  .about .signature-line em{font-family:'Fraunces',serif; font-style:italic; font-size:19px; color:var(--forest); font-weight:500;}
+  .about .pillars{display:flex; gap:0; margin-top:8px; border-top:1px solid var(--line-dark);}
+  .about .pillar{flex:1; padding:20px 18px 0 0;}
+  .about .pillar b{font-family:'Fraunces',serif; color:var(--forest); font-size:16.5px; display:block; margin-bottom:6px;}
+  .about .pillar span{font-size:13px; color:var(--earth);}
+  .about-photo{position:relative; border-radius:6px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(12,33,22,0.35);}
+  .about-photo img{width:100%; aspect-ratio:4/5; object-fit:cover;}
+  .about-photo .cap{
+    position:absolute; left:0; right:0; bottom:0; padding:20px 22px;
+    background:linear-gradient(0deg, rgba(12,33,22,0.88), rgba(12,33,22,0));
+    color:var(--cream); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.05em;
+  }
+
+  /* ---------- GROW SECTION ---------- */
+  .grow{background:var(--forest); padding:110px 0; position:relative;}
+  .grow .head{margin-bottom:56px; max-width:44ch;}
+  .grow .eyebrow{color:var(--marigold);}
+  .grow h2{color:var(--cream); font-size:clamp(28px,3.2vw,38px); margin-top:14px;}
+  .crop-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .crop-card{
+    background:var(--forest-deep); border:1px solid var(--line); border-radius:6px;
+    padding:36px 30px; transition:transform .25s ease, border-color .25s ease;
+  }
+  .crop-card:hover{transform:translateY(-6px); border-color:var(--marigold);}
+  .crop-card .emoji{
+    width:60px; height:60px; border-radius:50%; background:rgba(242,169,60,0.12);
+    display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:22px;
+    border:1px solid rgba(242,169,60,0.3);
+  }
+  .crop-card h3{color:var(--cream); font-size:21px; margin-bottom:10px; font-weight:600;}
+  .crop-card p{color:var(--cream-dim); font-size:14.5px;}
+  .crop-card .tag{
+    display:inline-block; margin-top:18px; font-family:'Space Mono',monospace; font-size:11px;
+    color:var(--marigold); letter-spacing:0.06em; text-transform:uppercase;
+    border-top:1px dashed var(--line); padding-top:14px; width:100%;
+  }
+
+  /* ---------- FROM OUR FARM ---------- */
+  .from-farm{background:var(--cream); padding:110px 0;}
+  .from-farm .head{margin-bottom:54px; max-width:50ch;}
+  .from-farm .eyebrow{color:var(--earth);}
+  .from-farm h2{color:var(--forest); font-size:clamp(28px,3.2vw,38px); margin-top:14px;}
+  .feature-row{display:grid; grid-template-columns:repeat(3,1fr); gap:30px;}
+  .feature{border-top:2px solid var(--forest); padding-top:22px;}
+  .feature .num{font-family:'Space Mono',monospace; font-size:12px; color:var(--earth); letter-spacing:0.05em;}
+  .feature h3{color:var(--forest); font-size:20px; margin:10px 0 10px;}
+  .feature p{font-size:14.5px; color:#40503f;}
+  .supply-strip{
+    margin-top:56px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    font-family:'Space Mono',monospace; font-size:12px; color:var(--forest); letter-spacing:0.03em;
+    padding-top:30px; border-top:1px dashed var(--line-dark);
+  }
+  .supply-strip .lbl{color:var(--earth); text-transform:uppercase;}
+  .supply-strip .chip{border:1px solid var(--line-dark); padding:7px 13px; border-radius:20px; background:rgba(21,52,32,0.03);}
+
+  /* ---------- TRADITIONAL DECOR ---------- */
+  .decor{background:var(--cream); padding:110px 0;}
+  .decor .head{margin-bottom:56px; max-width:64ch;}
+  .decor .eyebrow{color:var(--earth);}
+  .decor h2{color:var(--forest); font-size:clamp(28px,3.2vw,38px); margin-top:14px;}
+  .decor .head p{color:#40503f; font-size:15.5px; margin-top:14px; max-width:64ch;}
+  .decor .uses{display:flex; gap:10px; flex-wrap:wrap; margin-top:22px;}
+  .decor .uses span{
+    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--forest); border:1px solid var(--line-dark);
+    padding:7px 13px; border-radius:20px; background:rgba(21,52,32,0.03);
+  }
+
+  /* ---------- GALLERY (masonry, shows full images — no cropping) ---------- */
+  .fields{padding:110px 0; background:var(--forest-deep);}
+  .fields .head{margin-bottom:56px;}
+  .fields .eyebrow{color:var(--marigold);}
+  .fields h2{color:var(--cream); font-size:clamp(28px,3.2vw,38px); margin-top:14px; max-width:20ch;}
+  .gallery-grid{column-count:3; column-gap:18px;}
+  .gallery-grid figure{
+    position:relative; overflow:hidden; border-radius:4px; background:#000;
+    break-inside:avoid; margin:0 0 18px;
+  }
+  .gallery-grid img, .gallery-grid video{
+    width:100%; height:auto; display:block; transition:transform .6s ease;
+  }
+  .gallery-grid figure.video-figure{
+    aspect-ratio:var(--vw) / var(--vh);
+    display:flex; align-items:center; justify-content:center; background:#000;
+  }
+  .gallery-grid figure.video-figure video{
+    width:100%; height:100%; object-fit:cover; object-position:center; margin:auto;
+  }
+  .gallery-grid figure:hover img, .gallery-grid figure:hover video{transform:scale(1.04);}
+  .gallery-grid figcaption{
+    position:absolute; left:0; right:0; bottom:0; padding:14px 16px 12px;
+    background:linear-gradient(0deg, rgba(12,33,22,0.88), rgba(12,33,22,0));
+    color:var(--cream); font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.03em;
+  }
+  .gallery-grid .play-badge{
+    position:absolute; top:12px; right:12px; width:26px; height:26px; border-radius:50%;
+    background:rgba(12,33,22,0.6); display:flex; align-items:center; justify-content:center;
+    color:var(--cream); font-size:10px;
+  }
+
+  /* ---------- SEASONAL MARIGOLD ---------- */
+  .marigold-section{background:var(--cream); padding:0;}
+  .marigold-section .split{display:grid; grid-template-columns:1fr 1fr; min-height:640px;}
+  .marigold-photo{position:relative; overflow:hidden;}
+  .marigold-photo img{width:100%; height:100%; object-fit:cover; min-height:640px;}
+  .marigold-photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(21,52,32,0.08), rgba(21,52,32,0));
+  }
+  .marigold-copy{
+    background:var(--marigold); padding:90px 64px; display:flex; flex-direction:column; justify-content:center;
+  }
+  .marigold-copy .eyebrow{color:var(--forest-deep);}
+  .marigold-copy h2{color:var(--forest-deep); font-size:clamp(28px,3.4vw,42px); margin:16px 0 22px; max-width:12ch;}
+  .marigold-copy p{color:#4a3410; font-size:16px; max-width:44ch;}
+  .marigold-copy p + p{margin-top:14px;}
+  .marigold-copy .cta-row{margin-top:32px;}
+  .marigold-copy .btn-dark{background:var(--forest-deep); color:var(--cream); font-weight:700;}
+  .marigold-copy .btn-dark:hover{background:var(--forest); transform:translateY(-2px);}
+
+  /* ---------- VISIT ---------- */
+  .farms{background:var(--forest); padding:110px 0;}
+  .farms .head{margin-bottom:56px;}
+  .farms .eyebrow{color:var(--marigold);}
+  .farms h2{color:var(--cream); font-size:clamp(28px,3.2vw,38px); margin-top:14px;}
+  .farms .head p{color:var(--cream-dim); max-width:52ch; margin-top:14px; font-size:15px;}
+  .farm-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .farm-card{
+    background:var(--forest-deep); border:1px solid var(--line); border-radius:6px; padding:34px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .farm-card .top-row{display:flex; justify-content:space-between; align-items:flex-start;}
+  .farm-card h3{color:var(--cream); font-size:24px;}
+  .farm-card .badge{
+    font-family:'Space Mono',monospace; font-size:10.5px; color:var(--forest-deep); background:var(--marigold);
+    padding:5px 10px; border-radius:20px; letter-spacing:0.06em; text-transform:uppercase; white-space:nowrap;
+  }
+  .farm-card p.loc{color:var(--cream-dim); font-size:14.5px;}
+  .farm-card .coords{font-family:'Space Mono',monospace; font-size:12px; color:var(--coconut-light); letter-spacing:0.02em;}
+  .farm-card .crops{display:flex; gap:8px; flex-wrap:wrap;}
+  .farm-card .crops span{
+    font-size:11.5px; font-family:'Space Mono',monospace; color:var(--cream-dim); border:1px solid var(--line);
+    padding:6px 10px; border-radius:20px;
+  }
+  .farm-card .map-btn{
+    margin-top:auto; font-family:'Space Mono',monospace; font-size:12.5px; color:var(--marigold);
+    letter-spacing:0.05em; text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;
+    padding-top:16px; border-top:1px dashed var(--line);
+  }
+  .farm-card .map-btn::after{content:"→"; transition:transform .2s ease;}
+  .farm-card .map-btn:hover::after{transform:translateX(4px);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--forest-deep); padding:100px 0 0;}
+  .contact .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; padding-bottom:80px; border-bottom:1px solid var(--line);}
+  .contact .eyebrow{color:var(--marigold);}
+  .contact h2{color:var(--cream); font-size:clamp(30px,3.6vw,44px); margin-top:16px; max-width:14ch;}
+  .contact .body p{color:var(--cream-dim); font-size:15.5px; max-width:44ch; margin-top:18px;}
+  .contact-list{display:flex; flex-direction:column; gap:22px; margin-top:34px;}
+  .contact-list .item .label{
+    font-family:'Space Mono',monospace; font-size:11px; color:var(--coconut-light); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;
+  }
+  .contact-list .item .val{color:var(--cream); font-size:17px; font-family:'Fraunces',serif;}
+  .contact-list .item .hint{color:var(--cream-dim); font-size:12px; margin-top:4px; font-style:italic; opacity:0.75;}
+
+  .enquiry-form{
+    background:var(--forest); border:1px solid var(--line); border-radius:6px; padding:36px;
+  }
+  .enquiry-form .f-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .enquiry-form label{
+    display:block; font-family:'Space Mono',monospace; font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--coconut-light); margin-bottom:7px;
+  }
+  .enquiry-form input, .enquiry-form select, .enquiry-form textarea{
+    width:100%; background:var(--forest-deep); border:1px solid var(--line); color:var(--cream);
+    padding:12px 14px; border-radius:3px; font-family:'Work Sans',sans-serif; font-size:14px; outline:none;
+    transition:border-color .2s ease;
+  }
+  .enquiry-form input:focus, .enquiry-form select:focus, .enquiry-form textarea:focus{border-color:var(--marigold);}
+  .enquiry-form textarea{resize:vertical; min-height:90px;}
+  .enquiry-form .field{margin-bottom:16px;}
+  .enquiry-form .submit-row{display:flex; align-items:center; gap:16px; margin-top:6px; flex-wrap:wrap;}
+  .enquiry-form button{
+    font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.05em; text-transform:uppercase;
+    background:var(--marigold); color:var(--forest-deep); font-weight:700; padding:14px 26px; border:none;
+    border-radius:2px; cursor:pointer; transition:transform .2s ease, background .2s ease;
+  }
+  .enquiry-form button:hover{background:var(--cream); transform:translateY(-2px);}
+  .form-note{font-size:12px; color:var(--cream-dim); opacity:0.7; font-family:'Space Mono',monospace;}
+
+  footer.site{padding:34px 0;}
+  footer.site .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  footer.site .brand-mini{display:flex; align-items:center; gap:10px;}
+  footer.site .brand-mini img{width:28px; height:28px; border-radius:50%;}
+  footer.site .brand-mini span{color:var(--cream-dim); font-size:13px; font-family:'Space Mono',monospace;}
+  footer.site .credit{color:var(--cream-dim); font-size:12px; font-family:'Space Mono',monospace; opacity:0.6;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    nav.links a:not(.nav-cta){display:none;}
+    .about .grid{grid-template-columns:1fr; gap:34px;}
+    .about-photo{order:-1;}
+    .about .pillars{flex-direction:column; gap:14px;}
+    .about .pillar{padding-top:14px;}
+    .crop-grid{grid-template-columns:1fr;}
+    .feature-row{grid-template-columns:1fr; gap:28px;}
+    .gallery-grid{column-count:2; column-gap:14px;}
+    .gallery-grid figure{margin-bottom:14px;}
+    .marigold-section .split{grid-template-columns:1fr;}
+    .marigold-photo img{min-height:340px;}
+    .marigold-copy{padding:60px 28px;}
+    .farm-grid{grid-template-columns:1fr;}
+    .contact .wrap{grid-template-columns:1fr; padding-bottom:60px;}
+    .enquiry-form .f-row{grid-template-columns:1fr;}
+    .wrap{padding:0 22px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+    .reveal, .reveal-stagger > *{opacity:1 !important; transform:none !important;}
+  }
+  @media (max-width: 480px){
+    .gallery-grid{column-count:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="wrap">
+    <div class="brand">
+      <img src="logo.jpg" alt="Hari Sri Farms logo">
+      <div class="brand-text">
+        <span class="name">Hari Sri Farms</span>
+        <span class="tag">Rooted in tradition</span>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#grow">Grow</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#marigold">Marigold</a>
+      <a href="#decor">Decor</a>
+      <a href="#visit">Visit</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Mothepalayam, Mettupalayam · Tamil Nadu</p>
+    <h1>Rooted in tradition. <em>Grown with care.</em></h1>
+    <p class="crop-line">Banana <span>•</span> Coconut <span>•</span> Seasonal Marigold</p>
+    <div class="cta-row">
+      <a href="https://wa.me/917904541399" target="_blank" rel="noopener" class="btn btn-solid">Chat on WhatsApp</a>
+      <a href="#visit" class="btn btn-outline">Visit Farm</a>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <p class="eyebrow">Our story</p>
+        <h2>A family farm, rooted in family.</h2>
+        <div class="body">
+          <p>Hari Sri Farms is a family-run organic farm in Mothepalayam, near Mettupalayam, founded and cared for by Senthil Kumar. The name honours the next generation, Haresh S and Srimathi S, who carry the farm's legacy forward.</p>
+          <p>Banana groves, coconut palms, and marigold beds have grown here side by side for generations, beneath the watchful presence of the village temple. We farm without chemical inputs, by hand, harvesting only when produce is naturally ready — respecting the soil, and never compromising on quality.</p>
+          <p>Today, our produce reaches families across Tamil Nadu, Mumbai, and Kerala. The reach has grown; the way we farm has not.</p>
+        </div>
+        <div class="signature-line">
+          <span>From our family to yours.</span>
+          <em>Grown with care. Rooted in tradition.</em>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <b>Founder</b>
+            <span>Senthil Kumar, who has dedicated his life to this land.</span>
+          </div>
+          <div class="pillar">
+            <b>Namesake</b>
+            <span>Haresh S &amp; Srimathi S — the next generation the farm is named for.</span>
+          </div>
+          <div class="pillar">
+            <b>Philosophy</b>
+            <span>Respect the soil, care for every crop, never compromise on quality.</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-photo reveal">
+        <img src="tiller.jpg" alt="Farm tiller resting in the grass at Hari Sri Farms, with a young banana plot in the background">
+        <div class="cap">The tools that work these fields, season after season</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grow" id="grow">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">What we grow</p>
+      <h2>Three crops, one chemical-free field.</h2>
+    </div>
+    <div class="crop-grid reveal-stagger">
+
+      <div class="crop-card">
+        <div class="emoji">🍌</div>
+        <h3>Banana</h3>
+        <p>Naturally ripened and hand-cut, grown for flavour rather than shelf life — sent out across Tamil Nadu, Mumbai and Kerala. Depending on the season, we cultivate several varieties, including Sevvalai (Red Banana), Kathali, Nendran, Poovalai, and Robusta.</p>
+        <span class="tag">Peak season · Onam</span>
+      </div>
+
+      <div class="crop-card">
+        <div class="emoji">🥥</div>
+        <h3>Coconut</h3>
+        <p>Whole coconuts plus their by-products — leaves and coir — supplied direct from the palm to local buyers and households.</p>
+        <span class="tag">Coconut + leaves + coir</span>
+      </div>
+
+      <div class="crop-card">
+        <div class="emoji">🌼</div>
+        <h3>Seasonal Marigold</h3>
+        <p>Flower beds raised for garlands and festival decor, timed to bloom for Tamil Nadu's temple and harvest calendar. Marigold is also commonly grown in our banana fields as a beneficial intercrop and trap crop.</p>
+        <span class="tag">Grown to order · Seasonal</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="from-farm">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">From our farm</p>
+      <h2>What leaves the field, leaves fresh.</h2>
+    </div>
+    <div class="feature-row reveal-stagger">
+      <div class="feature">
+        <div class="num">01</div>
+        <h3>Fresh produce</h3>
+        <p>Bananas and coconuts are harvested and moved out the same day, so nothing sits in storage before it reaches you.</p>
+      </div>
+      <div class="feature">
+        <div class="num">02</div>
+        <h3>Seasonal harvests</h3>
+        <p>Marigold is grown to order around the festival calendar, so beds are timed to bloom exactly when they're needed.</p>
+      </div>
+      <div class="feature">
+        <div class="num">03</div>
+        <h3>Farm-grown products</h3>
+        <p>Beyond the fruit itself, we supply coconut by-products — leaves and coir — straight from the same fields.</p>
+      </div>
+    </div>
+    <div class="supply-strip">
+      <span class="lbl">Supplied across —</span>
+      <span class="chip">Tamil Nadu</span>
+      <span class="chip">Mumbai</span>
+      <span class="chip">Kerala</span>
+    </div>
+  </div>
+</section>
+
+<section class="fields" id="gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Our farm gallery</p>
+      <h2>Mothepalayam, through the growing season.</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure><img src="field-tractor-temple.jpg" alt="Field with tractor equipment and the village temple in the distance"><figcaption>Ploughed field, temple beyond</figcaption></figure>
+      <figure><img src="banana-harvest-pile.jpg" alt="Freshly harvested green bananas piled up at the farm"><figcaption>Fresh off the bunch</figcaption></figure>
+      <figure class="video-figure" style="--vw:720; --vh:1280;"><video src="gallery-video-fields.mp4" autoplay muted loop playsinline></video><span class="play-badge">▶</span><figcaption>The fields, in motion</figcaption></figure>
+      <figure><img src="field-plow.jpg" alt="Freshly ploughed field with coconut palms and farmhouse"><figcaption>Prepared for planting</figcaption></figure>
+      <figure><img src="banana-tunnel-sunset.jpg" alt="Sunset through the banana and coconut grove at Hari Sri Farms, Mothepalayam"><figcaption>Evening light through the grove</figcaption></figure>
+      <figure><img src="banana-harvest-hand.jpg" alt="Hand holding freshly picked ripe bananas against a backdrop of green banana bunches"><figcaption>Ready to eat</figcaption></figure>
+      <figure class="video-figure" style="--vw:480; --vh:848;"><video src="gallery-video-view.mp4" autoplay muted loop playsinline></video><span class="play-badge">▶</span><figcaption>A view across the farm</figcaption></figure>
+      <figure class="video-figure" style="--vw:960; --vh:540;"><video src="gallery-video-3.mp4" autoplay muted loop playsinline></video><span class="play-badge">▶</span><figcaption>Around the farm</figcaption></figure>
+      <figure><img src="field-open-sky.jpg" alt="Wide open cleared field under a cloudy sky, banana grove in the distance"><figcaption>Open field, ready for the next planting</figcaption></figure>
+      <figure><img src="banana-bunches-canopy.jpg" alt="Looking up into a banana grove canopy with bunches of green bananas hanging"><figcaption>Bunches ripening under the canopy</figcaption></figure>
+      <figure><img src="banana-rows.jpg" alt="Rows of banana trees at Hari Sri Farms"><figcaption>Banana rows, mid-season</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="marigold-section" id="marigold">
+  <div class="split">
+    <div class="marigold-photo reveal">
+      <img src="marigold-seedling.jpg" alt="A young marigold seedling held in a soil-covered hand at Hari Sri Farms">
+    </div>
+    <div class="marigold-copy reveal">
+      <p class="eyebrow">Seasonal spotlight</p>
+      <h2>Seasonal Marigold</h2>
+      <p>Every marigold on the farm starts like this — a single seedling, planted by hand, timed against the temple and harvest calendar so the beds bloom exactly when the season calls for them.</p>
+      <p>Grown for garlands, festival décor and temple offerings, our marigold is raised to order rather than kept in constant supply. It is also commonly planted alongside our banana crop, where it works as a beneficial intercrop and trap crop, helping to protect the surrounding plants. Enquire ahead of your festival dates to reserve a bloom window.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-dark">Enquire About Marigold</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="decor" id="decor">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">From farm to festival</p>
+      <h2>Traditional decor, grown right here.</h2>
+      <p>Long before they reach a doorway or a stage, our banana leaves and stems, coconut coir, and marigold blooms find some of their oldest uses — dressing thresholds, backdrops and mandapams for pujas, weddings and Onam. Traditional decor drawn straight from the farm, not from a workshop.</p>
+      <div class="uses">
+        <span>Banana leaf &amp; stem</span>
+        <span>Coconut coir</span>
+        <span>Marigold garlands</span>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <figure><img src="decor-banana-leaf-wall.jpg" alt="Banana leaf backdrop wall decorated with marigold garlands for a festival stage"><figcaption>Banana leaf backdrop, dressed for the stage</figcaption></figure>
+      <figure><img src="decor-door-toranam.jpg" alt="Traditional door toranam made with banana leaves and marigold garlands"><figcaption>A doorway, dressed the traditional way</figcaption></figure>
+      <figure><img src="decor-backdrop-green.jpg" alt="Green banana leaf themed backdrop with marigold garlands for an event"><figcaption>Event backdrop, farm to venue</figcaption></figure>
+      <figure><img src="decor-marigold-hanging-1.jpg" alt="Marigold flowers hanging on banana leaf strings against a wall"><figcaption>Marigold strings, ready to hang</figcaption></figure>
+      <figure><img src="decor-marigold-hanging-2.jpg" alt="Marigold garlands hanging under a roof, softly lit"><figcaption>Garlands catching the light</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="farms" id="visit">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Visit Hari Sri Farms</p>
+      <h2>Come see the fields in Mettupalayam.</h2>
+      <p>Hari Sri Farms and HS Farms sit a few minutes apart, both in Mothepalayam, spread across around 2 acres — open to wholesale buyers and visitors by arrangement.</p>
+    </div>
+    <div class="farm-grid reveal-stagger">
+
+      <div class="farm-card">
+        <div class="top-row">
+          <h3>Hari Sri Farms</h3>
+          <span class="badge">Farm 01</span>
+        </div>
+        <p class="loc">Mothepalayam, Mettupalayam, Tamil Nadu, India</p>
+        <div class="coords">11.3087° N, 76.9742° E</div>
+        <div class="crops"><span>Banana</span><span>Coconut</span><span>Marigold</span></div>
+        <a class="map-btn" href="https://maps.app.goo.gl/fzWRDxKXyv62QYg17" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+
+      <div class="farm-card">
+        <div class="top-row">
+          <h3>HS Farms</h3>
+          <span class="badge">Farm 02</span>
+        </div>
+        <p class="loc">Mothepalayam, Mettupalayam, Tamil Nadu, India</p>
+        <div class="coords">11.3095° N, 76.9769° E</div>
+        <div class="crops"><span>Banana</span><span>Coconut</span></div>
+        <a class="map-btn" href="https://maps.app.goo.gl/Y4mGvUepRZ9Hnapi6" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Order direct from the source.</h2>
+      <div class="body">
+        <p>For wholesale orders, festival supply, or fresh produce direct from the farm — send an enquiry and we'll get back to you with availability and pricing.</p>
+      </div>
+      <div class="contact-list">
+        <div class="item">
+          <div class="label">Phone / WhatsApp</div>
+          <div class="val">+91 79045 41399</div>
+          <a href="https://wa.me/917904541399" target="_blank" rel="noopener" class="hint" style="opacity:1; font-style:normal; color:var(--marigold);">Chat on WhatsApp →</a>
+        </div>
+        <div class="item">
+          <div class="label">Email</div>
+          <div class="val">orders@harisrifarms.com</div>
+          <div class="hint">Placeholder — update to your real address</div>
+        </div>
+        <div class="item">
+          <div class="label">Farm office</div>
+          <div class="val">Mothepalayam, Mettupalayam</div>
+          <div class="hint">Tamil Nadu, India</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="enquiry-form reveal" id="enquiryForm">
+      <div class="f-row">
+        <div class="field">
+          <label for="ef-name">Name</label>
+          <input type="text" id="ef-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="ef-phone">Phone</label>
+          <input type="tel" id="ef-phone" name="phone" placeholder="Your phone number" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="ef-interest">Interested in</label>
+        <select id="ef-interest" name="interest">
+          <option>Banana — wholesale</option>
+          <option>Coconut — wholesale</option>
+          <option>Coconut leaves &amp; coir</option>
+          <option>Seasonal Marigold</option>
+          <option>Farm visit</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ef-message">Message</label>
+        <textarea id="ef-message" name="message" placeholder="Quantity, delivery city, or festival date..."></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit">Send Enquiry on WhatsApp</button>
+        <span class="form-note">Opens WhatsApp with your details filled in</span>
+      </div>
+    </form>
+  </div>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="brand-mini">
+        <img src="logo.jpg" alt="Hari Sri Farms logo">
+        <span>Hari Sri Farms &amp; HS Farms — Mothepalayam</span>
+      </div>
+      <div class="credit">Rooted in tradition · Grown with care</div>
+    </div>
+  </footer>
+</section>
+
+<script>
+  // scroll-based header solidify
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    if (window.scrollY > 60) header.classList.add('solid');
+    else header.classList.remove('solid');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // enquiry form -> WhatsApp deep link
+  // NOTE: replace this placeholder with the farm's real WhatsApp number (country code, no + or spaces)
+  const WHATSAPP_NUMBER = "917904541399";
+
+  document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('ef-name').value.trim();
+    const phone = document.getElementById('ef-phone').value.trim();
+    const interest = document.getElementById('ef-interest').value;
+    const message = document.getElementById('ef-message').value.trim();
+
+    const text =
+      `Hello Hari Sri Farms, I'd like to enquire.%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Phone: ${encodeURIComponent(phone)}%0A` +
+      `Interested in: ${encodeURIComponent(interest)}%0A` +
+      `Message: ${encodeURIComponent(message || '-')}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
